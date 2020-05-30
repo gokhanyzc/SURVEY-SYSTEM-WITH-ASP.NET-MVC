@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Survey_System.Models.AnswerLine>
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int number = 1;
+}
+
+<div class="card">
+    <div class="body">
+        <h4 class="text-center" style="color:#ff6a00">Anket Detay Sayfası</h4>
+        <br />
+        @foreach (var item in Model)
+        {
+            <span><b>@number) </b> @item.Question</span>
+            <br /><b>@item.Answer</b>
+            <br /><br /><br />
+            number++;
+        }
+    <p>
+        @Html.ActionLink("Listeye Geri Dön", "Index", null, new { @class = "btn-sm btn-primary btn btn-round" })
+    </p>
+       
+    </div>
+</div>
+

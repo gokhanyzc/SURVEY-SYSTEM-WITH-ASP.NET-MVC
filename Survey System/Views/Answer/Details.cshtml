@@ -1,0 +1,67 @@
+﻿@model Survey_System.Models.Answer
+
+@{
+    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <h4 class="text-center" style="color:#ff6a00">Detay Sayfası</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(m => m.PersonName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(m => m.PersonName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PersonCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PersonCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Score)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Score)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Iscomplete)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Iscomplete)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreateBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreateBy)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Listeye Geri Dön", "Index", null, new { @class = "btn btn-primary btn btn-round" })
+    <br /> <br />
+    @Html.ActionLink("Dosyayı indir", "DownloadFile", "Answer", new { fileName = Model.dokuman_path, dokuman_name = Model.dokuman_adi, dokuman_no = Model.dokuman_no }, new { @class = "btn btn-success btn btn-round", @target = "_blank" })
+  
+</p>

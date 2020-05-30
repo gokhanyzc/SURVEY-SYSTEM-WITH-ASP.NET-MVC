@@ -1,0 +1,55 @@
+﻿@model Survey_System.Models.Person
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card">
+    <div class="card-body">
+        <div class="card-title" style="color:#280b70">Kişi Düzenleme Sayfası</div>
+        <hr>
+        <form action="/Person/Edit" method="post">
+            <input type="hidden" name="Id" value="@Model.Id" />
+            <div class="form-group">
+                <label for="input-1">Ad Soyad</label>
+                <input type="text" class="form-control" id="input-1" name="NameSurname" value="@Model.NameSurname" placeholder="Ad Soyad Giriniz..." maxlength="50" required>
+            </div>
+            <div class="form-group">
+                <label for="input-2">Code</label>
+                <input type="text" class="form-control" id="input-2" name="Code" value="@Model.Code" placeholder="Code..." required>
+            </div>
+            <div class="form-group">
+                <label for="input-3">Şifre</label>
+                <input type="password" class="form-control" id="input-3" name="Password" value="@Model.Password" placeholder="Şifre Giriniz" maxlength="20" required>
+            </div>
+
+            <label for="input-3">Admin mi?</label>
+            <div class="icheck-material-primary icheck-inline">
+                @if (Model.IsAdmin == true)
+                {
+                    <input type="radio" id="Id_1" name="Answer_1" value="@Survey_System.Constants.AnswerType.Yes" checked />
+                    <label for="Id_1">@Survey_System.Constants.AnswerType.Yes</label>
+
+                    <input type="radio" id="Id_2" name="Answer_1" value="@Survey_System.Constants.AnswerType.No">
+                    <label for="Id_2">@Survey_System.Constants.AnswerType.No</label>
+                }
+                else
+                {
+                    <input type="radio" id="Id_1" name="Answer_1" value="@Survey_System.Constants.AnswerType.Yes" />
+                    <label for="Id_1">@Survey_System.Constants.AnswerType.Yes</label>
+
+                    <input type="radio" id="Id_2" name="Answer_1" value="@Survey_System.Constants.AnswerType.No" checked>
+                    <label for="Id_2">@Survey_System.Constants.AnswerType.No</label>
+                }
+            </div>
+
+
+            <div class="form-group">
+                @Html.ActionLink("Listeye Geri Dön", "Index", null, new { @class = "btn btn-warning btn btn-round" })
+                <button type="submit" class="btn btn-round btn-success shadow-primary px-5"><i class="icon-lock"></i>Düzenle</button>
+
+            </div>
+        </form>
+
+    </div>
+</div>
+
